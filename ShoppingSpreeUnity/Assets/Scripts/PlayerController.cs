@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour {
 	public TextMeshProUGUI countText;
 	public GameObject winTextObject;
 
-        private float movementX;
-        private float movementY;
+    private float movementX;
+    private float movementY;
 
 	private Rigidbody rb;
 	private int count;
@@ -28,8 +28,8 @@ public class PlayerController : MonoBehaviour {
 
 		SetCountText ();
 
-                // Set the text property of the Win Text UI to an empty string, making the 'You Win' (game over message) blank
-                winTextObject.SetActive(false);
+        // Set the text property of the Win Text UI to an empty string, making the 'You Win' (game over message) blank
+        winTextObject.SetActive(false);
 	}
 
 	void FixedUpdate ()
@@ -55,15 +55,15 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-        void OnMove(InputValue value)
-        {
-        	Vector2 v = value.Get<Vector2>();
+    void OnMove(InputValue value)
+    {
+        Vector2 v = value.Get<Vector2>();
 
-        	movementX = v.x;
-        	movementY = v.y;
-        }
+        movementX = v.x;
+        movementY = v.y;
+    }
 
-        void SetCountText()
+    void SetCountText()
 	{
 		countText.text = "Count: " + count.ToString();
 
