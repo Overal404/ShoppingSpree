@@ -5,63 +5,74 @@ using UnityEngine.InputSystem;
 using TMPro;
 
 public class PlayerController : MonoBehaviour {
-	
-	// Create public variables for player speed, and for the Text UI game objects
-	public float speed;
+
+	//Player Stats
 	public TextMeshProUGUI countText;
 	public GameObject winTextObject;
 
-    private float movementX;
-    private float movementY;
-
-	private Rigidbody rb;
 	private int count;
 
-	// At the start of the game..
-	void Start ()
-	{
-		// Assign the Rigidbody component to our private rb variable
-		rb = GetComponent<Rigidbody>();
+	//Player Movement Variables
+	public CharacterController controller;
+	public Transform cam;
 
+	public float speed = 6f;
+
+	public float turnSmoothTime = 0.1f;
+	private float turnSmoothVelocity;
+
+	public float gravity = -9.81f;
+	private Vector3 velocity;
+	private bool isGrounded;
+	public Transform groundCheck;
+	public float groundDistance = 0.4f;
+	public LayerMask groundMask;
+
+
+	// At the start of the game..
+	void Start()
+	{
 		// Set the count to zero 
 		count = 0;
+		SetCountText();
 
-		SetCountText ();
-
-        // Set the text property of the Win Text UI to an empty string, making the 'You Win' (game over message) blank
-        winTextObject.SetActive(false);
+		// Win display message as inactive
+		winTextObject.SetActive(false);
 	}
 
-	void FixedUpdate ()
+	void Update()
 	{
-		// Create a Vector3 variable, and assign X and Z to feature the horizontal and vertical float variables above
-		Vector3 movement = new Vector3 (movementX, 0.0f, movementY);
+		float horiz = Input.GetAxisRaw("Horizontal");
+		float vert = Input.GetAxisRaw("Vertical");
+		Vector3 direct = new Vector3(horiz, 0f, vert).normalized;
 
-		rb.AddForce (movement * speed);
+		if (direct.magnitude >= 0.1f)
+		{
+			float targetAngle = Mathf.Atan2(direct.x, direct.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+			float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+			transform.rotation = Quaternion.Euler(0f, angle, 0f);
+			Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+			controller.Move(speed * Time.deltaTime * moveDir.normalized);
+		}
+
+		//GRAVITY
+		velocity.y += gravity * Time.deltaTime;
+		controller.Move(velocity * Time.deltaTime);
 	}
 
-	void OnTriggerEnter(Collider other) 
+    void OnTriggerEnter(Collider other) 
 	{
 		// ..and if the GameObject you intersect has the tag 'Pick Up' assigned to it..
 		if (other.gameObject.CompareTag ("PickUp"))
 		{
 			other.gameObject.SetActive (false);
-
 			// Add one to the score variable 'count'
-			count = count + 1;
-
+			count++;
 			// Run the 'SetCountText()' function (see below)
 			SetCountText ();
 		}
 	}
-
-    void OnMove(InputValue value)
-    {
-        Vector2 v = value.Get<Vector2>();
-
-        movementX = v.x;
-        movementY = v.y;
-    }
+	
 
     void SetCountText()
 	{
@@ -69,8 +80,8 @@ public class PlayerController : MonoBehaviour {
 
 		if (count >= 12) 
 		{
-                    // Set the text value of your 'winText'
-                    winTextObject.SetActive(true);
+			// Set the text value of your 'winText'
+            winTextObject.SetActive(true);
 		}
 	}
 }
