@@ -7,11 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameHandler : MonoBehaviour {
 
     void Update() {
-        //delete this quit functionality when a Pause Menu is added
-        if (Input.GetKey("escape"))
-        {
-            Application.Quit();
-        }
+        
     }
 
     /*
@@ -27,13 +23,5 @@ public class GameHandler : MonoBehaviour {
 
     public void RestartGame() {
         SceneManager.LoadScene("MainMenu");
-    }
-
-    public void QuitGame() {
-        #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-        #else
-        Application.Quit();
-        #endif
     }
 }
