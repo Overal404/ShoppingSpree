@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public TextMeshProUGUI countText;
 	public GameObject winTextObject;
 
-	private int count;
+	public static int count;
 
 	//Player Movement Variables
 	public CharacterController controller;
@@ -27,6 +27,10 @@ public class PlayerController : MonoBehaviour {
 	public Transform groundCheck;
 	public float groundDistance = 0.4f;
 	public LayerMask groundMask;
+
+
+	public Item itemUp;
+	public ItemPick ip;
 
 
 	// At the start of the game..
@@ -65,11 +69,26 @@ public class PlayerController : MonoBehaviour {
 		// ..and if the GameObject you intersect has the tag 'Pick Up' assigned to it..
 		if (other.gameObject.CompareTag ("PickUp"))
 		{
-			other.gameObject.SetActive (false);
-			// Add one to the score variable 'count'
-			count++;
-			// Run the 'SetCountText()' function (see below)
-			SetCountText ();
+			ip = other.transform.GetComponent<ItemPick>();
+			InventoryManager.Instance.Add(ip.Item);
+			Destroy(other.gameObject);
+
+			// if (count < 2) 
+			// {
+				// other.gameObject.SetActive (false);
+
+
+				// Add one to the score variable 'count'
+				// count = count + 1;
+
+				// other.gameObject.GetComponent<Item>()
+
+				// Run the 'SetCountText()' function (see below)	
+			// } else {
+			// 	SetCountText ();
+			// }
+			
+			
 		}
 	}
 	
