@@ -33,10 +33,13 @@ public class PauseHandler : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(paused)
+            if (paused)
+            {
                 Resume();
-            else
+            } else
+            {
                 Pause();
+            }
         }
     }
 

@@ -15,5 +15,5 @@ MonoBehaviour:
   id: 1
   itemName: Apple
   value: 2
-  icon: {fileID: 21300000, guid: f3543d7156f1d4f429f0c712d7dae393, type: 3}
+  icon: {fileID: 21300000, guid: cbbbd8c6f3e904988becfac0840e7e92, type: 3}
   itemType: 0

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a5815f3e1f57421897b6e0a678919b4, type: 3}
-  m_Name: Carrot
+  m_Name: Chicken
   m_EditorClassIdentifier: 
-  id: 3
-  itemName: Carrot
-  value: 3
-  icon: {fileID: 21300000, guid: 2fe2fbca606704af8a06eec64a6ae010, type: 3}
-  itemType: 1
+  id: 5
+  itemName: Chicken
+  value: 7
+  icon: {fileID: 21300000, guid: 434c75ca04d5e4aad9b05efef6450102, type: 3}
+  itemType: 2
