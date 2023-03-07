@@ -11,7 +11,6 @@ public class InventoryManager : MonoBehaviour
 
     public Transform ItemContent;
     public GameObject InventoryItem;
-
     public TextMeshProUGUI countText;
 	public GameObject winTextObject;
 
@@ -37,21 +36,13 @@ public class InventoryManager : MonoBehaviour
     {
         if(EnableRemove.isOn)
         {
-            PlayerController.count += item.value;
             Items.Remove(item);
             Destroy(cur);
         }
-
-        if (PlayerController.count >= 6) {
-            winTextObject.SetActive(true);
-        }
-            
     }
 
     public void ListItems()
     {
-        
-
 
         foreach (Transform item in ItemContent)
         {

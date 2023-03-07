@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class PauseSound : MonoBehaviour {
 
         private static PauseSound instance = null;
+        // TO DO: Acess paused bool from PauseHandler 
         // private bool LocalPaused = PauseHandler.paused;
         private bool LocalPaused = true;
 

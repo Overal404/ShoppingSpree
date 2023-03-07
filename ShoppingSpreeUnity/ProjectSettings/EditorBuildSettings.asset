@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MiniGame.unity
     guid: ce2ff2439da46486bbc505c926113cf7
   - enabled: 1
+    path: Assets/Scenes/EndLose.unity
+    guid: 64e57df4af6561248adba5505710db92
+  - enabled: 1
+    path: Assets/Scenes/EndWin.unity
+    guid: 259bb1d296020eb498afc25ff2b66629
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 4948b0ebc045240438711e21a53629e9
   m_configObjects: {}

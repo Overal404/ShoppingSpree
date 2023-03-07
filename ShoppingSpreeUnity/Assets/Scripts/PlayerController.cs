@@ -6,12 +6,6 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour {
 
-	//Player Stats
-	public TextMeshProUGUI countText;
-	public GameObject winTextObject;
-
-	public static int count;
-
 	//Player Movement Variables
 	public CharacterController controller;
 	public Transform cam;
@@ -36,12 +30,7 @@ public class PlayerController : MonoBehaviour {
 	// At the start of the game..
 	void Start()
 	{
-		// Set the count to zero 
-		count = 0;
-		SetCountText();
-
-		// Win display message as inactive
-		winTextObject.SetActive(false);
+		
 	}
 
 	void Update()
@@ -89,18 +78,6 @@ public class PlayerController : MonoBehaviour {
 			// }
 			
 			
-		}
-	}
-	
-
-    void SetCountText()
-	{
-		countText.text = "Count: " + count.ToString();
-
-		if (count >= 6) 
-		{
-			// Set the text value of your 'winText'
-            winTextObject.SetActive(true);
 		}
 	}
 }
