@@ -13,9 +13,4 @@ public class ItemPick : MonoBehaviour
         Destroy(gameObject);
     }
 
-
-    //private void OnTriggerEnter()
-    //{
-        //PickUp();
-    //}
 }

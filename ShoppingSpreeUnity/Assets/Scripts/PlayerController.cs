@@ -60,24 +60,10 @@ public class PlayerController : MonoBehaviour {
 		{
 			ip = other.transform.GetComponent<ItemPick>();
 			InventoryManager.Instance.Add(ip.Item);
-			Destroy(other.gameObject);
-
-			// if (count < 2) 
-			// {
-				// other.gameObject.SetActive (false);
-
-
-				// Add one to the score variable 'count'
-				// count = count + 1;
-
-				// other.gameObject.GetComponent<Item>()
-
-				// Run the 'SetCountText()' function (see below)	
-			// } else {
-			// 	SetCountText ();
-			// }
-			
-			
+			Destroy(other.gameObject);		
+		} else if (other.gameObject.CompareTag ("CheckOut")) {
+			// loop through the list, empting everything
+			InventoryManager.Instance.RemoveAll();
 		}
 	}
 }

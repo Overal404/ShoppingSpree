@@ -13,17 +13,22 @@ public class InventoryManager : MonoBehaviour
     public GameObject InventoryItem;
     public TextMeshProUGUI countText;
 	public GameObject winTextObject;
+    public int itemsAdded;
 
     public Toggle EnableRemove;
+
+    public GameHandler GameHandler;
 
     private void Awake()
     {
         Instance = this;
+        itemsAdded = 0;
     }
 
     public void Add(Item item)
     {
         Items.Add(item);
+        itemsAdded += 1;
 
 
         GameObject obj = Instantiate(InventoryItem, ItemContent);
@@ -77,5 +82,15 @@ public class InventoryManager : MonoBehaviour
                 item.Find("RemoveButton").gameObject.SetActive(false);
             }
         }
+    }
+
+    public void RemoveAll()
+    {  
+        for (itemsAdded = itemsAdded - 1; itemsAdded >= 0; itemsAdded--)
+        {
+            GameHandler.AddCounter(Items[itemsAdded].value);
+            Items.Remove(Items[itemsAdded]);
+        }
+
     }
 }
