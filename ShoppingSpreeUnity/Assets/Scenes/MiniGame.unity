@@ -745,7 +745,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1898,7 +1898,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1286271972}
+      - m_Target: {fileID: 1432967234}
         m_TargetAssemblyTypeName: PauseHandler, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -2760,7 +2760,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1286271972}
+      - m_Target: {fileID: 1432967234}
         m_TargetAssemblyTypeName: PauseHandler, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
@@ -3800,7 +3800,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1286271973}
-  - component: {fileID: 1286271972}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -3808,22 +3807,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1286271972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1286271970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e6ec821aada398449a080610f704da0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playUI: {fileID: 84938933}
-  menuUI: {fileID: 1286271970}
-  paused: 0
-  mixer: {fileID: 24100000, guid: 268adcbd3c294e844b2ddbce56fd34ff, type: 2}
 --- !u!4 &1286271973
 Transform:
   m_ObjectHideFlags: 0
@@ -3902,7 +3885,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -4434,6 +4417,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 30
   timerText: {fileID: 2042448529}
+--- !u!114 &1432967234 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2335510828284943927, guid: 84489f276a3794638bd4bd2a8344a302,
+    type: 3}
+  m_PrefabInstance: {fileID: 174860253}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432967230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e6ec821aada398449a080610f704da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1471052908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6214,7 +6209,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1286271972}
+      - m_Target: {fileID: 1432967234}
         m_TargetAssemblyTypeName: PauseHandler, Assembly-CSharp
         m_MethodName: SetLevel
         m_Mode: 4
