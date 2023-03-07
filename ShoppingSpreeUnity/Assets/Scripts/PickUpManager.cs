@@ -31,7 +31,19 @@ public class PickUpManager : MonoBehaviour
             int randy = Random.Range(-10, 10);
             Vector3 transform = new Vector3(randx, 0.5f, randy);
             
-            Instantiate(ingrediantObjects[itemID], transform, Quaternion.identity);
+            Instantiate(ingrediantObjects[itemID], transform, Quaternion.identity, this.gameObject.transform);
         }
+    }
+
+    public int GetCountWinValue()
+    {
+        int winValue = 0;
+
+        foreach(Item item in Items)
+        {
+            winValue += item.value;
+        }
+
+        return winValue;
     }
 }

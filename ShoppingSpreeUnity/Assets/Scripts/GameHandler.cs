@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameHandler : MonoBehaviour {
     public GameObject textGameObject;
+    public PickUpManager pickupmanager;
     private int counter;
-    public int counterWin = 6;
+    private int counterWin;
 
     public float theTimer;
-    public Text timerText;
+    public TMP_Text timerText;
     public float startTime = 45;
 
     public bool isEnd = true;
@@ -19,6 +21,8 @@ public class GameHandler : MonoBehaviour {
           counter =0;
           UpdateCounter();
           theTimer = startTime;
+
+          counterWin = pickupmanager.GetCountWinValue();
 
           if (isEnd){
                Cursor.lockState = CursorLockMode.None;

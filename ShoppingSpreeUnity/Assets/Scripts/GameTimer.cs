@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameTimer : MonoBehaviour {
        public int timer = 0;
@@ -18,7 +19,7 @@ public class GameTimer : MonoBehaviour {
       }
 
       public void UpdateTimer(){
-            Text timeTextTemp = timerText.GetComponent<Text>();
+            TMP_Text timeTextTemp = timerText.GetComponent<TMP_Text>();
             timeTextTemp.text = "" + timer;
       }
 }
