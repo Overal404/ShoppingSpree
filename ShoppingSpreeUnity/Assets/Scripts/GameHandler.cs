@@ -21,17 +21,13 @@ public class GameHandler : MonoBehaviour {
           counter =0;
           UpdateCounter();
           theTimer = startTime;
-
+          counterWin = 0;
           counterWin = pickupmanager.GetCountWinValue();
 
           if (isEnd){
                Cursor.lockState = CursorLockMode.None;
                Cursor.visible = true;
           }
-    }
-
-    void Update () {
-
     }
 
     void FixedUpdate () {
