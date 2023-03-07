@@ -8,7 +8,7 @@ public class PauseHandler : MonoBehaviour
 {
     public GameObject playUI;
     public GameObject menuUI;
-    public bool paused;
+    public static bool paused;
     public AudioMixer mixer;
     public static float volumeLevel = 1.0f;
     private Slider sliderVolumeCtrl;
