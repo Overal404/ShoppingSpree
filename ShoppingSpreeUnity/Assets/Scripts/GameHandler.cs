@@ -41,6 +41,10 @@ public class GameHandler : MonoBehaviour {
     public void AddCounter (int newCounterValue) {
           // U prob wanna do logic here brendan, update counter takes care of
           // the UI so doint worry about that part
+
+          // If the "checkout" object is triggered
+          // Loop through the list of items
+          // For each item, update the counter base on the value
           counter += newCounterValue;
           UpdateCounter();
            if (counter >= counterWin) {
